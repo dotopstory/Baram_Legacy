@@ -38,4 +38,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  gem 'sqlite3', '1.3.11' 
+  gem 'byebug', '9.9.' , platform: :mri
+  
 end
