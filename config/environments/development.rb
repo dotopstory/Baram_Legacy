@@ -39,6 +39,10 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   
+  
+  #whitelisted ip addresses
+  config.web_console.whiny_requests = false
+  
   gem 'sqlite3', '1.3.11' 
   gem 'byebug', '9.0.0' , platform: :mri
   
