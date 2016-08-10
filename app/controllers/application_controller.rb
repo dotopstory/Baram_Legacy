@@ -5,4 +5,7 @@ class ApplicationController < ActionController::Base
   def hello
     render html: "Ashwin Sucks dicks"
   end
+      
+  include ApplicationHelper
+  
 end
