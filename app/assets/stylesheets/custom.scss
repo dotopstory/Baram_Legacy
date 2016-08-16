@@ -96,7 +96,7 @@ footer {
 }
 
 /*mixins, variables, etc */ 
-@mixin box_sizing{
+@mixin box_sizing {
     -moz-box-sizing: border-box; 
     -webkit-box-sizing: border-box;
     box-sizing: border-box; 
@@ -166,7 +166,7 @@ input {
 }
 
 #error_explanation { 
-    color:red;
+    color: red;
     ul { 
         color: red;
         margin: 0 0 30px 0;
@@ -194,4 +194,13 @@ input {
     margin-left: 0; 
 } 
 
+.users { 
+    list-style: none; 
+    margin: 0; 
+    li { 
+        overflow: auto; 
+        padding: 10px 0; 
+        border-bottom: 1px solid $gray-lighter;
+    } 
+} 
 
