@@ -43,6 +43,13 @@ Rails.application.configure do
   #whitelisted ip addresses
   config.web_console.whiny_requests = false
   
+  config.action_mailer.raise_delivery_errors = true 
+  config.action_mailer.delivery_method = :test 
+  host = 'baram-legacy-mun5424.c9users.io.' 
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' } 
+  
+  
+  
   gem 'sqlite3', '1.3.11' 
   gem 'byebug', '9.0.0' , platform: :mri
   
