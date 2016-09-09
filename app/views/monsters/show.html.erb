@@ -1,0 +1,55 @@
+<% provide(:title,"Monsters: " + @monster.name) %>
+<div class="container">
+  <div class="page-header">
+  <h1><%= @monster.name %></h1>
+  </div>
+  <div class="row">  
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="overview">
+        <h4>Overview</h4>
+            <div class="square"> 
+            
+             <%= image_tag @monster.avatar.url(:square) %>
+             <br> 
+            </div>
+            <!-- @monster.description -->
+             <p> 평범하게 생긴 토끼. 초보사냥터에서 볼 수 있다. </p>
+             
+      </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="stats">
+           <h4>Stats</h4>
+          <ul class="list-group">
+              <li class="list-group-item"> <span class="label label-default">ID</span> <%= @monster.id %> </li>
+              <li class="list-group-item"> <span class="label label-success">EXP</span> <%= @monster.exp %> </li>
+              <li class="list-group-item"> <span class="label label-danger">HP</span> <%= @monster.hp %>  </li>
+              <li class="list-group-item"> <span class="label label-info">MP</span> <%= @monster.mp %> </li>
+              <li class="list-group-item"> <span class="label label-warning">Damage</span> <%= @monster.damange %> </li>
+          </ul>
+        </div>
+    </div> 
+      
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="drops">
+          <h4>Item Drops</h4>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="skills">
+          <h4>Skills</h4>
+        </div>
+    </div>
+    
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="dungeons">
+          <h4>Dungeon Locations</h4>
+        </div>
+    </div>
+    
+  
+  </div>
+  
+</div> 

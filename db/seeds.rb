@@ -33,3 +33,6 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+Monster.create!(name: "다람쥐", 
+            exp: 10)

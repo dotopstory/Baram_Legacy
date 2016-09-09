@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819195230) do
+ActiveRecord::Schema.define(version: 20160908033449) do
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "durability"
+    t.string   "damage_small"
+    t.string   "damage_large"
+    t.integer  "armor"
+    t.integer  "strength"
+    t.integer  "agility"
+    t.integer  "intelligence"
+    t.integer  "regen"
+    t.integer  "spellshield"
+    t.integer  "accuracy"
+    t.integer  "critical"
+    t.integer  "hp"
+    t.integer  "mp"
+    t.integer  "level_required"
+    t.string   "job_required"
+    t.boolean  "repairable"
+    t.boolean  "drops_on_death"
+    t.boolean  "breaks_on_death"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
@@ -20,6 +45,20 @@ ActiveRecord::Schema.define(version: 20160819195230) do
     t.string   "picture"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
+  end
+
+  create_table "monsters", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "exp"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.decimal  "hp"
+    t.decimal  "mp"
+    t.decimal  "attack_damage"
   end
 
   create_table "relationships", force: :cascade do |t|

@@ -1,0 +1,49 @@
+// Place all the styles related to the Monster controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.overview {
+    box-sizing: border-box;
+        text-align:center;
+    
+    
+    .square {
+    text-align: center;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    
+    background: #EEEEEE;
+    } 
+    
+    p { 
+        text-align: left;
+    }
+    
+}
+
+.stats {
+    text-align: center;
+}
+
+.drops { 
+    text-align: center;
+}
+
+.skills { 
+    text-align: center;
+}
+
+
+.dungeons { 
+}
+
+.list-group {
+    text-align: left;
+}
+
+.label { 
+//display: block; 
+   //  width: 30px; 
+}

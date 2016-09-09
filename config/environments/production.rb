@@ -78,8 +78,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   config.force_ssl = true
-  
-  #  gem 'pg',  '0.18.4'
     
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
@@ -94,5 +92,15 @@ Rails.application.configure do
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }  
+  
+  config.paperclip_defaults = {
+  storage: :s3,
+  s3_credentials: {
+    bucket: ENV.fetch('S3_BUCKET'),
+    access_key_id: ENV.fetch('S3_ACCESS_KEY'),
+    secret_access_key: ENV.fetch('S3_SECRET_KEY'),
+    s3_region: ENV.fetch('AWS_REGION'),
+  }
+}
     
 end

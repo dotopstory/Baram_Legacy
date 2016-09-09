@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create' 
   delete '/logout', to: 'sessions#destroy'
+  
+  #monsters
+  #get '/monsters', to: 'monsters#edit'
 
 
   resources :users do 
@@ -24,6 +27,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy] 
+  resources :monsters
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
