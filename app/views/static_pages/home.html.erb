@@ -19,27 +19,23 @@
 <% else %>
 <div class="center jumbotron">
  <h1>Baram Legacy</h1>
-
-  <h2>
-    This is the home page for the
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ/">Baram Legacy</a>
-    application.
-  </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    <p>Memories you would replay in a heartbeat. </p>
+  <%= link_to "Sign up", signup_path, class: "btn btn-primary" %>
 </div>
 
-    <p>This website serves to keep and maintain information about the legacy version (5.50) of the MMORPG game Kingdom of the Winds. </p>
 
-<%= link_to image_tag("baramHeart.jpg", alt: "Baram Heart"),
-            'https://www.youtube.com/watch?v=J49irbymkzo' %>
-<%= image_tag("baramev1.jpg", alt: "Baram Event") %>
-<%= image_tag("yaksu.gif", alt: "yaksu") %>
-<%= image_tag("baramCrop.jpg", alt: "crop") %>
-<%= image_tag("gilim.gif", alt: "gilim") %>
-<%= image_tag("baramMoon.jpg", alt: "moon") %>
-<%= image_tag("hwansang.jpg", alt: "fantasy") %>
-<%= image_tag("tree.gif", alt: "tree") %>
-<%= image_tag("yonggoong.jpg", alt: "sea") %>
+<div id="slideshow">
+  <%= image_tag "baramHeart.jpg", alt: "Baram Heart", :id => "slideshow" %>
+  <%= image_tag "baramev1.jpg", alt: "Baram Event", :id => "slideshow" %>
+  <%= image_tag "baramCrop.jpg", alt: "crop", :id => "slideshow"  %>
+  <%= image_tag "yaksu.gif", alt: "yaksu", :id => "slideshow" %>
+  <%= image_tag "gilim.gif", alt: "gilim", :id => "slideshow" %>
+  <%= image_tag "baramMoon.jpg", alt: "moon", :id => "slideshow" %>
+  <%= image_tag "Sky.png", alt: "fantasy", :id => "slideshow" %>
+  <%= image_tag "tree.gif", alt: "tree", :id => "slideshow" %>
+  <%= image_tag "yonggoong.jpg", alt: "sea", :id => "slideshow" %>
+  <%= image_tag "fantasyIsland.jpg", alt: "Fantasy Island", :id => "slideshow" %>
+</div>
+
 
 <% end %>

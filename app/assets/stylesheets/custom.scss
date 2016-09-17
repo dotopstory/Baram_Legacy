@@ -1,6 +1,75 @@
 @import "bootstrap-sprockets"; 
 @import "bootstrap";
 
+
+/* slideshow */ 
+#slideshow {
+  position:relative;
+  width:854px;
+  height:768px;
+  margin:0 auto;
+}
+
+#slideshow img {
+  position:absolute;
+  left:0;
+  animation-name: slideshow;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 30s;
+}
+
+@keyframes slideshow {
+  0% {
+    opacity:1;
+  }
+  17% {
+    opacity:1;
+  }
+  25% {
+    opacity:0;
+  }
+  92% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+#slideshow img:nth-of-type(1) {
+  animation-delay: 27s;
+}
+#slideshow img:nth-of-type(2) {
+  animation-delay: 24s;
+}
+#slideshow img:nth-of-type(3) {
+  animation-delay: 21s;
+}
+#slideshow img:nth-of-type(4) {
+  animation-delay: 18s;
+}
+#slideshow img:nth-of-type(5) {
+  animation-delay: 15s;
+}
+#slideshow img:nth-of-type(6) {
+  animation-delay: 12s;
+}
+#slideshow img:nth-of-type(7) {
+  animation-delay: 9s;
+}
+#slideshow img:nth-of-type(8) {
+  animation-delay: 6s;
+}
+#slideshow img:nth-of-type(9) {
+  animation-delay: 3s;
+}
+#slideshow img:nth-of-type(10) {
+  animation-delay: 0s;
+}
+
+
+
 /* universal */
 
 $gray-medium-light: #eaeaea;
@@ -21,6 +90,7 @@ textarea {
     text-align: center;
     h1 {
     margin-bottom: 10px; 
+    font-family: 'Tangerine', cursive;
     }
 }
 
@@ -33,7 +103,8 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: 3em;
     letter-spacing: -2px;
-    margin-bottom: 30px;
+    margin-top: 60px;
+    margin-bottom: 10px;
     text-align: center; 
 }
 
@@ -289,4 +360,50 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+
+/* colors  */
+
+.label-gray {
+  background-color: #999;
+}
+.label-gray[href]:hover,
+.label-gray[href]:focus {
+  background-color: #808080;
+}
+.label-blue {
+  background-color: #428bca;
+}
+.label-blue[href]:hover,
+.label-blue[href]:focus {
+  background-color: #3071a9;
+}
+.label-green {
+  background-color: #5cb85c;
+}
+.label-green[href]:hover,
+.label-green[href]:focus {
+  background-color: #449d44;
+}
+.label-purple {
+  background-color: #5bc0de;
+}
+.label-purple[href]:hover,
+.label-purple[href]:focus {
+  background-color: #31b0d5;
+}
+.label-orange {
+  background-color: #f0ad4e;
+}
+.label-orange[href]:hover,
+.label-warning[href]:focus {
+  orange-color: #ec971f;
+}
+.label-red {
+  background-color: #d9534f;
+}
+.label-red[href]:hover,
+.label-red[href]:focus {
+  background-color: #c9302c;
 }

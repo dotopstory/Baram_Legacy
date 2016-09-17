@@ -49,6 +49,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: host, protocol: 'https' } 
   
   
+ 
   
   gem 'sqlite3', '1.3.11' 
   gem 'byebug', '9.0.0' , platform: :mri
