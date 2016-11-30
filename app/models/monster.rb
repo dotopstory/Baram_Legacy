@@ -42,4 +42,17 @@ class Monster < ApplicationRecord
   def picture_from_url(url)
     self.avatar = URI.parse(url)
   end
+  
+  def self.import(file)
+  spreadsheet = open_spreadsheet(file)
+  header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      monster = find_by_id(row["id"]) || new
+      monster.attributes = row.to_hash.slice(*accessible_attributes)
+      monster.save!
+    end
+  end
+  
+  
 end

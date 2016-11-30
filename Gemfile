@@ -18,6 +18,9 @@ gem 'will_paginate', '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'paperclip'
 gem 'aws-sdk',      '~> 2.3'
+gem 'korean-string'
+gem 'spreadsheet',   '0.9.0'
+gem 'roo'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
