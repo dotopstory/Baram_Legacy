@@ -1,0 +1,22 @@
+
+ <div class="col-md-2">
+    <%= link_to monster_path(monster) do %>
+       <div class="squarebox">
+          <div class="pid"> 
+           <span class="label label-gray"><%= monster.id %> </span>
+          </div>
+          <div class="pimageid"> 
+           <span class="label label-green"><%= monster.image_id %> </span>
+          </div>
+           
+          <%= image_tag monster.avatar.url %>
+          <p> 
+              <%= monster.name %>
+          </p>
+       </div>
+    <% end %>
+ </div>
+
+
+
+     <%# image_tag monster.avatar.url, size: 30 %>
