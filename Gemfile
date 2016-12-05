@@ -21,9 +21,10 @@ gem 'aws-sdk',      '~> 2.3'
 gem 'korean-string'
 gem 'spreadsheet',   '0.9.0'
 gem 'roo'
+gem 'pg', '0.18.4'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.11'
+#  gem 'sqlite3', '1.3.11'
   gem 'byebug',  '9.0.0', platform: :mri
 end
 
@@ -42,7 +43,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.18.4'
+#  gem 'pg', '0.18.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
