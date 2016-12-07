@@ -1,3 +1,1 @@
-#Ruby on rails tutorial
-
-#Hello, world! 
+Baram Legacy
