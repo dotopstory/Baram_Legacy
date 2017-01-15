@@ -1,33 +1,23 @@
+require 'rubygems'
+require 'roo'
+
 class Monster < ApplicationRecord
     
+  #self.primary_keys = :id, :name
+  
   validates :name,  presence: true
-  validates :exp,   presence: true
   has_many :monster_drops
   has_many :items, through: :monster_drops
   
-  has_attached_file :avatar, 
-  styles: {
-    thumb: '300x300>',
-    square: '400x400#',
-    medium: '300x300>'
-  },
- :path => "/images/:class/:attachment/:id_partition/:attachment_:id_:hash_:style.:extension",
- :url => "https://s3-us-west-1.amazonaws.com/baramlegacy/images/Monsters/:id.:extension"
-                             
-  # Validate the attached image is image/jpg, image/png, etc
-  validates_attachment :avatar,
-  content_type: { content_type: ["image/jpeg", "image/gif", "image/png", "image/jpg"] }
     
-    
-  def drop_item(item)
-      monster_drops.create(item_id: item.id)
+  def drop_item(item_id)
+      monster_drops.create(item_id: item_id)
   end 
   
   def get_drop_items
         dropped_items = "SELECT item_id FROM monster_drops
                      WHERE  monster_id = :id"
-        Item.where("id IN (#{dropped_items})
-                     OR id = :id", id: id)
+        Item.where("id IN (#{dropped_items})", id: id)
   end 
   
   
@@ -39,18 +29,41 @@ class Monster < ApplicationRecord
     monster_drops.include?(item) 
   end   
   
-  def picture_from_url(url)
-    self.avatar = URI.parse(url)
+  def image_url
+    "https://s3-us-west-1.amazonaws.com/baramlegacy/images/Monsters/#{image_id}.png"
+  end
+   
+  
+  
+  def self.open_spreadsheet(file)
+    case File.extname(file)
+    when ".csv" then Roo::Csv.new(file, nil, :ignore)
+    when ".xls" then Roo::Excel.new(file, nil, :ignore)
+     when ".xlsx" then Roo::Excelx.new(file, packed: nil, file_warning: :ignore)
+    else raise "Unknown file type: #{file}"
+    end
   end
   
   def self.import(file)
-  spreadsheet = open_spreadsheet(file)
-  header = spreadsheet.row(1)
+    allowed_attributes = ["sun_id","name","exp","description", "image_id", "color"]
+    spreadsheet = open_spreadsheet(file)
+    header = spreadsheet.row(1)
+    #drop_id = 1
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      monster = find_by_id(row["id"]) || new
-      monster.attributes = row.to_hash.slice(*accessible_attributes)
+      monster = new
+      monster.id = i - 1
+      monster.attributes = row.to_hash.select { |k,v| allowed_attributes.include? k } 
+      unless row['item_drops'].nil? 
+        row['item_drops'].split(",").map(&:strip).each do |item_name|
+          puts item_name
+          item_to_drop = Item.find_by(name: item_name) 
+          unless item_to_drop.nil? 
+              MonsterDrop.create(monster_id: monster.id, item_id: item_to_drop.id )
+          end
+      end
       monster.save!
+      end
     end
   end
   

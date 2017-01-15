@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130203639) do
+ActiveRecord::Schema.define(version: 20161213232000) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -61,15 +61,17 @@ ActiveRecord::Schema.define(version: 20161130203639) do
   create_table "monsters", force: :cascade do |t|
     t.string   "name"
     t.integer  "exp"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "avatar_content_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.decimal  "hp"
     t.decimal  "mp"
     t.decimal  "attack_damage"
     t.integer  "image_id"
     t.integer  "aggro_type"
     t.integer  "color"
+    t.string   "description"
+    t.integer  "sun_id"
+    t.index ["id", "name"], name: "index_monsters_on_id_and_name", unique: true
   end
 
   create_table "relationships", force: :cascade do |t|

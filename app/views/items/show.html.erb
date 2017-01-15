@@ -5,11 +5,11 @@
   <h1><%= @monster.name %></h1>
   </div>
   <div class="row">  
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
       <div class="overview">
         <h4>Overview</h4>
             <div class="square"> 
-             <%= image_tag @monster.avatar.url(:square) %>
+             <%= image_tag @monster.image_url %>
              <br> 
             </div>
              <p> <%= @monster.description %> </p>
@@ -17,7 +17,7 @@
       </div>
     </div>
     
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="stats">
            <h4>Stats</h4>
            <table class="table table-striped table-bordered" id="monsterstats">
@@ -48,14 +48,9 @@
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="drops">
           <h4>Item Drops</h4>
-           <table class="table table-striped table-bordered" id="monsterstats">
             <% @monster.get_drop_items.each do |item| %>
-                <tr>
-                  <td> <%= image_tag item.image_url %> </td>
-                  <td>  <%= item.name %>   </td>
-                </tr>
+               <% render item %>
             <% end %>
-            </table>
         </div>
         
     </div>
