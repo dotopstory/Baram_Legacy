@@ -2,7 +2,7 @@ require 'rubygems'
 require 'roo'
   
 class Item < ApplicationRecord
-  validates :name,  presence: true
+  #validates :name,  presence: true
 
   has_many :monster_drops
   has_many :monsters, through: :monster_drops
