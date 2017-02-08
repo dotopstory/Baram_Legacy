@@ -33,7 +33,9 @@ class Item < ApplicationRecord
       row = Hash[[header, spreadsheet.row(i)].transpose]
       item = find_by_id(row["id"]) || new
       item.attributes = row.to_hash.select { |k,v| allowed_attributes.include? k }
-      item.save!
+      unless item.name == ""
+        item.save!
+      end
     end
   end
  
