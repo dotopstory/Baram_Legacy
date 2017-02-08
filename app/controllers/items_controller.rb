@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
     def show
         @item = Item.find(params[:id])
-        redirect_to root_url and return unless @user.activated?
+       # redirect_to root_url and return unless @user.activated?
     end
     
     def index

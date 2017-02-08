@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213232000) do
+ActiveRecord::Schema.define(version: 20161213224033) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20161213232000) do
     t.integer  "aggro_type"
     t.integer  "color"
     t.string   "description"
-    t.integer  "sun_id"
     t.index ["id", "name"], name: "index_monsters_on_id_and_name", unique: true
   end
 
