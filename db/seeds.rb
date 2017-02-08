@@ -12,8 +12,8 @@ unless User.find_by( email: "baram@baramlegacy.com" )
 end
 
 
-Monster.import("/app/assets/images/monsters/monsters.xlsx")
+Monster.import("https://s3-us-west-1.amazonaws.com/baramlegacy/images/Data/monsters.xlsx")
 
-Item.import("/app/assets/images/monsters/items.xlsx")
+Item.import("https://s3-us-west-1.amazonaws.com/baramlegacy/images/Data/items.xlsx")
  
             
